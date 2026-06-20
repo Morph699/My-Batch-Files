@@ -1,0 +1,10 @@
+@echo off
+chcp 65001 >nul
+CD /d "%~dp0"
+REG ADD "HKCU\SOFTWARE\Classes\CLSID\{E31EA727-12ED-4702-820C-4B6445F28E1A}" /V System.IsPinnedToNamespaceTree /T REG_DWORD /D 0 /F
+if exist "%PROGRAMFILES(X86)%" goto 64BIT
+goto end
+:64BIT
+REG ADD "HKCU\SOFTWARE\Classes\WOW6432Node\CLSID\{E31EA727-12ED-4702-820C-4B6445F28E1A}" /V System.IsPinnedToNamespaceTree /T REG_DWORD /D 0 /F
+:end
+
