@@ -1,13 +1,12 @@
 @echo off
 chcp 65001 >nul
-cd /d "%~dp0"
-color 1F
-mode con:cols=78 lines=26
-Title Morphs SystemTemp deletion
+CD /d "%~dp0"
+setlocal EnableDelayedExpansion
 
 cd %systemroot%\system32
 call :IsAdmin
 
+RMDIR /S /Q "c:\Users\Server\AppData\Local\Google\"
 color 1F
 cls
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
@@ -25,17 +24,14 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo clearing SystemTemp folder 
-echo.
-del /f /s /q c:\Windows\SystemTemp\
-rmdir /s /q c:\Windows\SystemTemp\
-if exist "c:\Users\Server\AppData\Local\Google\Chrome\User Data\OptGuideOnDeviceModel" (
-    rmdir /s /q "c:\Users\Server\AppData\Local\Google\Chrome\User Data\OptGuideOnDeviceModel"
-)
-
-echo.
-echo Succesfully cleared SystemTemp folder 
+Echo Linking Chrome's user data folder..
 ping localhost -n 2 >nul
+mklink /J "C:\Users\Server\AppData\Local\Google\" "g:\Apps Portable\_DataFolders\ChromeUserData\"
+echo.
+echo [Done]
+echo.
+ping localhost -n 2 >nul
+RMDIR /S /Q "c:\Users\Server\AppData\Local\Chromium\"
 color 1F
 cls
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
@@ -53,13 +49,14 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo Creating SystemTemp folder 
+Echo Linking Chromiums's user data folder..
+ping localhost -n 2 >nul
+mklink /J "c:\Users\Server\AppData\Local\Chromium\" "g:\Apps Portable\_DataFolders\ChromiumUserData\"
 echo.
-mkdir c:\Windows\SystemTemp\
+echo [Done]
 echo.
-echo Succesfully re created SystemTemp folder 
-ping localhost -n 3 >nul
-exit
+ping localhost -n 2 >nul
+Exit
 
 :IsAdmin
 Reg.exe query "HKU\S-1-5-19\Environment"

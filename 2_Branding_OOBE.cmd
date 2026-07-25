@@ -1,11 +1,13 @@
 @echo off
-chcp 65001 >nul
-cd /d "%~dp0" 
+CD /d %~dp0
+color 1F
 mode con:cols=78 lines=26
+Title Morph's_File_renamer_Branding
 
 cd %systemroot%\system32
 call :IsAdmin
 
+RMDIR /Q /S "d:\Temp\NTlite\NLTmpMnt\inetpub"
 color 1F
 cls
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
@@ -23,13 +25,18 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo.
-echo Please wait...
-echo.
-compact /compactos:always
+takeown /F d:\Temp\NTLite\NLTmpMnt\Windows\System32\oobe\en-US\W32UIRes.dll.mui /a
+ICACLS d:\Temp\NTLite\NLTmpMnt\Windows\System32\oobe\en-US\W32UIRes.dll.mui /GRANT Administrators:F
+rem ren d:\Temp\NTLite\NLTmpMnt\Windows\System32\oobe\en-US\W32UIRes.dll.mui W32UIRes.dll.mui.bak
+ping localhost -n 1 >nul
+takeown /F d:\Temp\NTLite\NLTmpMnt\Windows\Branding\Basebrd\basebrd.dll /a
+ICACLS d:\Temp\NTLite\NLTmpMnt\Windows\Branding\Basebrd\basebrd.dll /GRANT Administrators:F
+rem ren d:\Temp\NTLite\NLTmpMnt\Windows\Branding\Basebrd\basebrd.dll basebrd.dll.bak
 ping localhost -n 2 >nul
+takeown /F d:\Temp\NTlite\NLTmpMnt\Windows\Branding\Basebrd\en-US\basebrd.dll.mui /a
+ICACLS d:\Temp\NTlite\NLTmpMnt\Windows\Branding\Basebrd\en-US\basebrd.dll.mui /GRANT Administrators:F
+rem ren d:\Temp\NTlite\NLTmpMnt\Windows\Branding\Basebrd\en-US\basebrd.dll.mui basebrd.dll.mui.bak
 
-Exit
 
 :IsAdmin
 Reg.exe query "HKU\S-1-5-19\Environment"

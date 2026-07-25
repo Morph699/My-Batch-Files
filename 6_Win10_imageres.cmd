@@ -1,7 +1,8 @@
 @echo off
-chcp 65001 >nul
-cd /d "%~dp0" 
+CD /d %~dp0
 mode con:cols=78 lines=26
+Title Morph's_Files_Renamer_imageres_Files
+color 1F
 
 cd %systemroot%\system32
 call :IsAdmin
@@ -23,13 +24,14 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo.
-echo Please wait...
-echo.
-compact /compactos:always
+takeown /F d:\Temp\NTlite\NLTmpMnt\Windows\System32\imageres.dll /a
+ICACLS d:\Temp\NTlite\NLTmpMnt\Windows\System32\imageres.dll /GRANT Administrator:F
+rem ren d:\Temp\NTlite\NLTmpMnt\Windows\System32\imageres.dll imageres.dll.bak
 ping localhost -n 2 >nul
-
-Exit
+takeown /F d:\Temp\NTlite\NLTmpMnt\Windows\System32\imagesp1.dll /a
+ICACLS d:\Temp\NTlite\NLTmpMnt\Windows\System32\imagesp1.dll /GRANT Administrator:F 
+rem ren d:\Temp\NTlite\NLTmpMnt\Windows\System32\imagesp1.dll imagesp1.dll.bak
+ping localhost -n 2 >nul
 
 :IsAdmin
 Reg.exe query "HKU\S-1-5-19\Environment"
@@ -39,3 +41,4 @@ If Not %ERRORLEVEL% EQU 0 (
 )
 Cls
 goto:eof
+

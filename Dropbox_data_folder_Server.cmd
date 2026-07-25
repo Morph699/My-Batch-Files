@@ -1,11 +1,13 @@
 @echo off
 chcp 65001 >nul
-cd /d "%~dp0" 
-mode con:cols=78 lines=26
+CD /d "%~dp0"
+setlocal EnableDelayedExpansion
 
 cd %systemroot%\system32
 call :IsAdmin
 
+taskkill /im dropbox.exe
+RMDIR /S /Q "c:\Users\Server\AppData\Local\Dropbox\"
 color 1F
 cls
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
@@ -23,12 +25,13 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo.
-echo Please wait...
-echo.
-compact /compactos:always
+Echo Linking Dropbox's Profile folder..
 ping localhost -n 2 >nul
-
+mklink /J "c:\Users\Server\AppData\Local\Dropbox\" "g:\Apps Portable\_DataFolders\DropboxData\"
+echo.
+echo [Done]
+echo.
+ping localhost -n 2 >nul
 Exit
 
 :IsAdmin

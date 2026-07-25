@@ -1,7 +1,8 @@
 @echo off
-chcp 65001 >nul
-cd /d "%~dp0" 
+CD /d %~dp0
+color 1F
 mode con:cols=78 lines=26
+Title Morph's_Ease of Access Themes deletion
 
 cd %systemroot%\system32
 call :IsAdmin
@@ -23,13 +24,14 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo.
-echo Please wait...
-echo.
-compact /compactos:always
+takeown /F "d:\Temp\NTLite\NLTmpMnt\Windows\Resources\Ease of Access Themes" /a /r /d y
+ping localhost -n 2 >nul
+ICACLS "d:\Temp\NTLite\NLTmpMnt\Windows\Resources\Ease of Access Themes" /grant administrators:F /T
+ping localhost -n 2 >nul
+RMDIR /Q /S "d:\Temp\NTLite\NLTmpMnt\Windows\Resources\Ease of Access Themes"
 ping localhost -n 2 >nul
 
-Exit
+
 
 :IsAdmin
 Reg.exe query "HKU\S-1-5-19\Environment"

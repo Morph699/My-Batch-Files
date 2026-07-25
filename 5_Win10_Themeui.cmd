@@ -1,7 +1,8 @@
 @echo off
-chcp 65001 >nul
-cd /d "%~dp0" 
+CD /d %~dp0
 mode con:cols=78 lines=26
+Title Morph's_Files_Renamer_Theme_Files
+color 1F
 
 cd %systemroot%\system32
 call :IsAdmin
@@ -23,13 +24,18 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo.
-echo Please wait...
-echo.
-compact /compactos:always
+takeown /F d:\Temp\NTLite\NLTmpMnt\Windows\System32\themeui.dll /a
+ICACLS d:\Temp\NTLite\NLTmpMnt\Windows\System32\themeui.dll /GRANT Administrators:F
+rem ren d:\Temp\NTLite\NLTmpMnt\Windows\System32\themeui.dll themeui.dll.bak
+ping localhost -n 1 >nul
+takeown /F d:\Temp\NTLite\NLTmpMnt\Windows\System32\uxinit.dll /a
+ICACLS d:\Temp\NTLite\NLTmpMnt\Windows\System32\uxinit.dll /GRANT Administrators:F
+rem ren d:\Temp\NTLite\NLTmpMnt\Windows\System32\uxinit.dll uxinit.dll.bak
 ping localhost -n 2 >nul
+takeown /F d:\Temp\NTLite\NLTmpMnt\Windows\System32\recovery\winre.wim /a
+ICACLS d:\Temp\NTLite\NLTmpMnt\Windows\System32\recovery\winre.wim /GRANT Administrators:F
+del d:\Temp\NTLite\NLTmpMnt\Windows\System32\recovery\winre.wim
 
-Exit
 
 :IsAdmin
 Reg.exe query "HKU\S-1-5-19\Environment"
@@ -39,3 +45,9 @@ If Not %ERRORLEVEL% EQU 0 (
 )
 Cls
 goto:eof
+
+
+
+
+
+

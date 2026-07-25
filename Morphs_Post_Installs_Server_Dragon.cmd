@@ -1,34 +1,64 @@
 @echo off
-TITLE Morphs_Post_Installs_Installs
+TITLE Morphs Server-Edition installs
 chcp 65001 >nul
 cd /d "%~dp0"
 setlocal EnableDelayedExpansion
 mode con:cols=80 lines=22
-color 0F
+color 0A
 RMDIR /S /Q "%WINDIR%\Setup\Scripts\" 2>nul
 RMDIR /S /Q "%WINDIR%\Setup\Files\" 2>nul
+
 
 :: =========================================================================
 :: STATIC SIMULATION CONFIGURATION SWITCH
 :: =========================================================================
 set "SimulationMode=0"
 
-:: Explicit path injection prevents shortcut reference crashes on Win11
-if exist "%~dp0MorphsTweaks2026.cmd" (
-    start /min "" cmd /c "cd /d %~dp0 && MorphsTweaks2026.cmd"
-)
-
-:: Changed 'call' to asynchronous 'start' execution to eliminate deployment freeze
-if exist "c:\ProgramData\Morphs_Apps\Defender Control Portable\dControl.exe" (
-    start "" /b "c:\ProgramData\Morphs_Apps\Defender Control Portable\dControl.exe"
+:: =========================================================================
+:: INDEPENDENT BACKGROUND SCRIPTS PIPELINE (Live Mode Only)
+:: =========================================================================
+:: Launch independent background optimization scripts safely wrapped in quotes
+if "%SimulationMode%"=="0" (
+    if exist "%~dp0MorphsTweaks2026.cmd" start /min "" cmd /c "cd /d %~dp0 && MorphsTweaks2026.cmd"
+    if exist "%~dp0OEM_Reg_info_Server.cmd" start /min "" cmd /c "cd /d %~dp0 && OEM_Reg_info_Server.cmd"
+    if exist "%~dp0TSforge_Activation_W10.cmd" start /min "" cmd /c "cd /d %~dp0 && TSforge_Activation_W10.cmd"
+    if exist "%~dp0Software_Configs_Server2026.cmd" start /min "" cmd /c "cd /d %~dp0 && Software_Configs_Server2026.cmd"
 )
 
 cls
-TITLE Morphs_Post_Installs_Installs
-:: Animated Unicode Logo Render
-powershell -ExecutionPolicy Bypass -Command "$colors=@('Cyan','Green','Magenta','Yellow','White','DarkCyan'); $logo=@('        ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß','        ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     ','        ßß ßßßß ßß  ßß    ßß  ßßßßßß   ßßßßßß   ßßßßßßß  ßßßßßßß','        ßß  ßß  ßß  ßß    ßß  ßß   ßß  ßß       ßß   ßß       ßß','        ßß      ßß   ßßßßßß   ßß   ßß  ßß       ßß   ßß  ßßßßßßß',' ','   ßßßßßß  ßßßßßß  ßßßßßßß   ßßßßß  ßßßßßßßß  ßß  ßßßßßß  ßßß    ßß  ßßßßßßß','  ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßßßß   ßß  ßß     ','  ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ßß    ßß ßß ßß  ßß  ßßßßßßß','  ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß','   ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß'); foreach ($line in $logo) { if ($line.Trim().Length -eq 0) { Write-Host ''; continue }; [char[]]$chars = $line.ToCharArray(); foreach ($c in $chars) { if ($c -eq 'ß') { $color = Get-Random -InputObject $colors; Write-Host $c -ForegroundColor $color -NoNewline } else { Write-Host $c -NoNewline } }; Write-Host '' }"
-echo.
-ping localhost -n 3 >nul
+chcp 65001
+mode con: cols=92 lines=30
+echo                              ░░                                                           
+echo                          ░░▒▒▒░░          ░      ░░                                       
+echo                      ░▒▒▒▒░░░░             ░░░░   ░▒▒░ ░        ░▒▓▓▒░                    
+echo                  ░▒▒▓▒░    ░░                 ░▒▒▒▒▒▓▓▓▓▓▓░       ▒▒▒▒▓░                  
+echo               ░▒▓▓▒░  ░   ░░░                ░▒▓▒▒▒░░▒▓▓▒▒▓█▓░     ░░░▒▒▓▒                
+echo             ░▒▓▒░░ ░░░   ░░░▒              ░▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▓▓▒▓   ░▒░░░░▒▓▓░             
+echo           ░▒▓▒░░░░░░░░   ▒░░▒▒            ░░▒▒░░░░░░░░░▒░  ░░░░▒   ░▒░  ░░ ░▓▓▒           
+echo         ░▒▓▒░░░░░░░░░░░  ▒░░░▓▒          ░░░▒▒▒▒░  ░░▒░░░▒▒░░      ▒░░░ ░░░ ░▒▓▓░         
+echo        ░▒▒░░░░░░▒▒░░░░░  ▒▒░░░▓▒░        ░░░▒▒▒▒▒░ ░     ░▒▒▒    ░▓▒░▒░░░░░░░ ░▒█▓░       
+echo       ▒▓▒░░░░░▒▒▒▒░░░░░  ░▒▒▒▒░░▓▓▒░░     ░░░▒▒▓▓▓▒▒░     ░░░   ▒▓▒▒░▒░░░░░░░░ ░▒▓▓░      
+echo     ░▒▓▒▒▒▒▒░▒▒▒▒▒▒░░░░     ░░▒▒▒░▒▓▓▓▒▓░░░░░░▒▓▓▓▓▓▒▒       ░▒▓▓▒▒▒▒░░░░░░░░░░ ░░▓▓▒     
+echo    ░▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒░░░░           ░▒▒▓▒▓▓▒▒░░░▒▒▓▓██▓▓░░▒▓▓▓█▓▒▓▒▒░░░░░░░░░░░░ ░░░▓▓▓    
+echo    ░▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒░░░░░░ ░         ░ ░▒▒▓▒▓▒▒▒▒▒▓▓██▓█▓▓█▓▓▒░░   ░ ░░░░░░░░░░░ ░░░▓▓░   
+echo   ░▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒░░░░░░░░░░ ░░░     ░░▒▒▓▓▓▓▒▒▒▓▒▓▓▓█▓█▓░░   ░░░░░░░░░░░░░░░░ ░░░▒▓▓   
+echo   ░▒▒▓▒▒▒▒▒░▒▒▒▒░░       ░░░░    ░ ░░░░░░▒▓▓▓▓▓▒░▒▒▒▒▒▓▓▓▓▓▒░░░░░░░░░░░░░░░░░░░░░░░░░▓▓▒  
+echo   ▒▓▒▒░░▒▒▒▒▒▒░             ░ ░░░▒▓▒░░░▒░░░░░░░░░░░░▒▒▒▓▒▒▒▒░░░░░░░░░░░░▒▒░░░░░░░░░░░░▓▓░ 
+echo   ▒▒     ░▒▒▓░               ░░▒▓▒▒░░▒▒░░░░░   ░░░░░░▒▒░░░░   ░░░░░     ░░░▒░░░░░░░░░░▓▓░ 
+echo   ▒        ▒▒             ░▒░▓▓█▓▒░░░▒▒▓▒░    ░░░░░░░░  ░░▒                ░░░░░░░░░░░▒▓░ 
+echo   ▒        ░░         ░▒▓▒▒▒░▒▒▓▓▒    ░░▒▓▓▒    ░░░░    ░▒▓█░               ░▒▒░░░░░░░▒▓  
+echo   ░░        ▒      ░▓▓▓▓▒▒▒░▒░░▒░       ░▓▓▓▒▒▒▒░░░░░   ░░▒▓▓░               ▒▒░░    ░▒▒  
+echo                 ░▒▓▓▓▓▒▒▒░ ░░░░░       ░░▓░▓░░▒▓▒▒▒▒▓▓▓▒▒░░▒▓▓░              ▒░      ░▒░  
+echo               ░▒▓▓▓▓▓▒░░   ░░░      ░░░░░░  ▒░░▒░▒▓▓▒▓▓▓▓▒▒▒▓▓▓             ░░       ░▒   
+echo              ░▒▓▓▓▓▓▒░    ░▒░░    ░░░▒▒░░ ░░░░░░░░▒▓▓▒▓▓▓▓▓░▒▓▓▒          ░░         ▒    
+echo              ░▒▓▓▓▓▒      ░▓░▒░░░▒▓▒░░▒▒░░░░░▒▒░░░░░░▒▒░▒▒▒▓▒▒░▓▓░                  ▒     
+echo              ░▒▒▓▓▓░   ░░▒░▒▒░▒▒▒▒▒▒░ ░░░░░░░░░▒░  ░ ░▒▒▒▒▒▓▓▒░░▒▒                 ░      
+echo               ░▒▒▒▓▓▒░░░░░░░░░░░░▒▓▒▒░░░░░░░░  ░▒░░░░░▒▒▒▒░░▒▓▓▒▒░░                       
+echo                 ░░▒▒▒▒▒▓▒▓▒▓▒▒▒▒░░░▒▒▓▒▒▒▒▒░░░░  ░░░░░░▒▓▓▓▒░░░▒▒▓▓▓▒                     
+echo                      ░░░░░░░░▒▒▒▒░░░░  ░░░▒▒▓▓▒▒░ ░░░▒▒▒▒▒▒▒░░░░▒▒▒▒▓▒                    
+echo               ░░       ░░░░         ░   ░░▒░ ░▒▒▒▒░░      ▒▒▓▓▓▒░▒▒▒▒▒▒                   
+echo                          ░                 ░    ░░ ░        ░   ░░░ ░░░                   
+timeout /t 3 >nul
 
 :: Generate Live System Analytics & Memory Monitor (Continuous Background Streaming)
 echo Initializing Diagnostics Dashboard...
@@ -42,35 +72,33 @@ powershell -NoProfile -Command "$o=(Get-CimInstance Win32_OperatingSystem).Capti
 :: Initialize Base Status Entry
 echo INITIALIZING INTERFACE... > "%StatusFile%"
 
+:: =========================================================================
+:: INITIALIZATION LAYER: AUDIO ENGINE & VISUAL SHIELD
+:: =========================================================================
+
 :: Launch Background Music via the Tiny 20KB Player
-if exist "%~dp0cmdmp3.exe" (
-    start /min "" "%~dp0cmdmp3.exe" "%~dp0music.mp3"
-)
+if exist "cmdmp3.exe" start "" /min "cmdmp3.exe" "music.mp3" 
 
 :: Fire Up the Fullscreen Animated Graphic Shield Over the UI
-if exist "%~dp0Kaleidoscope Grid2_Installer_Coloured.hta" (
-    start "" "mshta.exe" "%~dp0Kaleidoscope Grid2_Installer_Coloured.hta"
+if exist "%~dp0Kaleidoscope_Grid2_Server_Coloured.hta" (
+    start "" "mshta.exe" "%~dp0Kaleidoscope_Grid2_Server_Coloured.hta"
 )
 
-:: Allow a brief 2-second buffer for the HTA UI overlay to lock onto the screen
 timeout /t 2 /nobreak >nul
 
 :: =========================================================================
-:: GLOBAL UNIFIED DYNAMIC COUNTER (Complete Master Sync Manifest)
+:: CONSOLIDATED DYNAMIC COUNTER
 :: =========================================================================
 set "TotalInstalls=0"
-for /f "delims=" %%i in ('dir /b /a-d "%~dp0*.cmd"') do (
-    set "TargetScript=%%~nxi"
+for %%i in (*.cmd) do (
     set "IsExcluded=0"
-    
-    if /i "!TargetScript!"=="%~nx0" set "IsExcluded=1"
-    if /i "!TargetScript!"=="MorphsTweaks2026.cmd" set "IsExcluded=1"
-    if /i "!TargetScript!"=="OEM_Reg_info_Installs.cmd" set "IsExcluded=1"
-    if /i "!TargetScript!"=="TSforge_Activation_W10.cmd" set "IsExcluded=1"
-    if /i "!TargetScript!"=="Software_Configs_Installs2026.cmd" set "IsExcluded=1"
+    if /i "%%i"=="%~nx0" set "IsExcluded=1"
+    if /i "%%i"=="MorphsTweaks2026.cmd" set "IsExcluded=1"
+    if /i "%%i"=="OEM_Reg_info_Server.cmd" set "IsExcluded=1"
+    if /i "%%i"=="TSforge_Activation_W10.cmd" set "IsExcluded=1"
+    if /i "%%i"=="Software_Configs_Server2026.cmd" set "IsExcluded=1"
     if /i "!TargetScript!"=="Morphs_Driver_Search.cmd" set "IsExcluded=1"
 
-    
     if "!IsExcluded!"=="0" set /a TotalInstalls+=1
 )
 
@@ -80,8 +108,7 @@ if !TotalInstalls! equ 0 (
     del /f /q "%StatusFile%" "%AnalyticsFile%" "%StaticSpecsFile%" 2>nul
     cls
     color 0C
-    echo Error: No target installer .cmd files found in directory: "%~dp0"
-    pause
+    echo Error: No target installer .cmd files found in directory.
     exit /b
 )
 
@@ -101,11 +128,10 @@ for /f "delims=" %%i in ('dir /b /o:n /a-d "%~dp0*.cmd"') do (
     
     if /i "!TargetScript!"=="%~nx0" set "IsExcluded=1"
     if /i "!TargetScript!"=="MorphsTweaks2026.cmd" set "IsExcluded=1"
-    if /i "!TargetScript!"=="OEM_Reg_info_Installs.cmd" set "IsExcluded=1"
+    if /i "!TargetScript!"=="OEM_Reg_info_Server.cmd" set "IsExcluded=1"
     if /i "!TargetScript!"=="TSforge_Activation_W10.cmd" set "IsExcluded=1"
-    if /i "!TargetScript!"=="Software_Configs_Installs2026.cmd" set "IsExcluded=1"
+    if /i "!TargetScript!"=="Software_Configs_Server2026.cmd" set "IsExcluded=1"
     if /i "!TargetScript!"=="Morphs_Driver_Search.cmd" set "IsExcluded=1"
-
 
     if "!IsExcluded!"=="0" (
         set /a CurrentInstall+=1
@@ -146,16 +172,18 @@ for /f "delims=" %%i in ('dir /b /o:n /a-d "%~dp0*.cmd"') do (
         echo ================================================================================
 
         if "!SimulationMode!"=="1" (
-            color 0E
+            color 0A
             echo      [SIMULATE] Safe-run active. Would now execute: "%%i"
             timeout /t 2 >nul
             color 1F
         ) else (
-            setlocal
-            cmd /c "%~dp0%%i"
-            endlocal
+            :: FIXED: Explicit execution isolation sandbox with proper working directory jump
+            cmd /c "cd /d "%~dp0" && call "%%~nxi""
         )
         echo.
+        
+        :: FIXED: Always reset context path back to base after child script exits
+        cd /d "%~dp0"
     )
 )
 
@@ -205,6 +233,5 @@ if "!SimulationMode!"=="0" (
     cls
     color 0E
     echo [SIMULATION] Process completed. File purges and reboots skipped.
-    pause
     exit /b 0
 )
