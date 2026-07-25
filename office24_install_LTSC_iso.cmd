@@ -1,9 +1,7 @@
 @setlocal DisableDelayedExpansion
+@set uivr=v11.3
 @echo off
 chcp 65001 >nul
-CD /d "%~dp0"
-mode con:cols=78 lines=26
-Title Morphs Office 2024 Silent Installer
 set "_cmdf=%~f0"
 if exist "%SystemRoot%\Sysnative\cmd.exe" (
 setlocal EnableDelayedExpansion
@@ -11,9 +9,9 @@ start %SystemRoot%\Sysnative\cmd.exe /c ""!_cmdf!" %*"
 exit /b
 )
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -27,25 +25,24 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 if exist "%SystemRoot%\SysArm32\cmd.exe" if /i %PROCESSOR_ARCHITECTURE%==AMD64 (
 setlocal EnableDelayedExpansion
 start %SystemRoot%\SysArm32\cmd.exe /c ""!_cmdf!" %*"
 exit /b
 )
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -59,14 +56,14 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 set _silent=0
 set "_args=%*"
@@ -94,11 +91,10 @@ set _cwmi=0
 for %%# in (wmic.exe) do @if not "%%~$PATH:#"=="" (
 cmd /c "wmic path Win32_ComputerSystem get CreationClassName /value" 2>nul | find /i "ComputerSystem" 1>nul && set _cwmi=1
 )
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -112,14 +108,14 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 set _pwsh=1
 for %%# in (powershell.exe) do @if "%%~$PATH:#"=="" set _pwsh=0
@@ -142,12 +138,10 @@ set "_file=%_target%\OfficeClickToRun.exe"
 set "_temp=%temp%"
 set "_work=%~dp0"
 set "_work=%_work:~0,-1%"
-
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -161,16 +155,16 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-@Title Morphs Office 2024 Silent Installer
+@title Morphs Office 2024 Silent Installer / %uivr%
 setlocal EnableDelayedExpansion
 set _updt=True
 set _eula=True
@@ -264,11 +258,10 @@ for /f %%# in ('dir /b /ad "!_work!\Office\Data\" 2^>nul') do if exist "!_work!\
   set "CTRsource=%~dp0"
   )
 )
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -282,14 +275,14 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 if defined CTRsource goto :check3
 if exist "!_work!\Data\*.cab" (
@@ -339,11 +332,10 @@ stream.%CTRarc%.%CTRstp%.dat
 ) do (
 if not exist "!CTRsource!\Office\Data\%CTRver%\%%#" set "ERRFILE=%%#"&goto :E_FILE
 )
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -357,14 +349,14 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 set _Of365=0
 set _OneDrive=ON
@@ -386,11 +378,10 @@ if /i "%_suite%"=="Standard2024Volume" (set _suite=StandardRetail&set _suit2=Sta
 if %winbuild% geq 10240 (
 if /i "%_suite%"=="O365ProPlusRetail" set _suit2=MondoVolume
 )
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -404,14 +395,14 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 set "_products=%_suite%.16_%CTRlng%_x-none"
 if /i "%_suite%"=="MondoVolume" set _pkey0=HFTND-W9MK4-8B7MJ-B6C4G-XQBR2
@@ -437,11 +428,10 @@ if defined _pkey0 set "_keys=%_pkey0%"
 if not defined _skus goto :MenuFinal
 
 :sku
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -455,14 +445,14 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 set _base=0
 set /a kk=0
@@ -506,22 +496,20 @@ if /i "%%J"=="ProjectStd2021Volume" (set /a kk+=1&set _pkey!kk!=J2JDC-NJCYY-9RGQ
 if /i "%%J"=="VisioPro2021Volume" (set /a kk+=1&set _pkey!kk!=KNH8D-FGHT4-T8RK3-CTDYJ-K2HT4)
 if /i "%%J"=="VisioStd2021Volume" (set /a kk+=1&set _pkey!kk!=MJVNY-BYWPY-CWV6J-2RKRT-4M8QG)
 if /i "%%J"=="Access2024Volume" (set /a kk+=1&set _pkey!kk!=82FTR-NCHR7-W3944-MGRHM-JMCWD)
-if /i "%%J"=="Excel2024Volume" (set /a kk+=1&set _pkey!kk!=F4DYN-105BP2-WQTWJ-GR8YC-CKGJG)
+if /i "%%J"=="Excel2024Volume" (set /a kk+=1&set _pkey!kk!=F4DYN-89BP2-WQTWJ-GR8YC-CKGJG)
 if /i "%%J"=="Outlook2024Volume" (set /a kk+=1&set _pkey!kk!=D2F8D-N3Q3B-J28PV-X27HD-RJWB9)
 if /i "%%J"=="PowerPoint2024Volume" (set /a kk+=1&set _pkey!kk!=CW94N-K6GJH-9CTXY-MG2VC-FYCWP)
 if /i "%%J"=="SkypeForBusiness2024Volume" (set /a kk+=1&set _pkey!kk!=4NKHF-9HBQF-Q3B6C-7YV34-F64P3)
 if /i "%%J"=="Word2024Volume" (set /a kk+=1&set _pkey!kk!=MQ84N-7VYDM-FXV7C-6K7CC-VFW9J)
 if /i "%%J"=="ProjectPro2024Volume" (set /a kk+=1&set _pkey!kk!=FQQ23-N4YCY-73HQ3-FM9WC-76HF4)
 if /i "%%J"=="ProjectStd2024Volume" (set /a kk+=1&set _pkey!kk!=PD3TT-NTHQQ-VC7CY-MFXK3-G87F8)
-if /i "%%J"=="VisioPro2024Volume" (set /a kk+=1&set _pkey!kk!=B7TN8-FJ8V3-7QYCP-HQPMV-YY105G)
+if /i "%%J"=="VisioPro2024Volume" (set /a kk+=1&set _pkey!kk!=B7TN8-FJ8V3-7QYCP-HQPMV-YY89G)
 if /i "%%J"=="VisioStd2024Volume" (set /a kk+=1&set _pkey!kk!=JMMVY-XFNQC-KK4HK-9H7R3-WQQTV)
 )
-
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -535,16 +523,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 if %winbuild% lss 10240 if %_base% equ 0 for %%J in (%_skus%) do (
 set _tmp=%%J
 if /i "!_tmp:~-10!"=="2019Volume" (call set _tmp=!_tmp:~0,-10!Retail) else if /i "!_tmp:~-10!"=="2021Volume" (call set _tmp=!_tmp:~0,-10!Retail) else if /i "!_tmp:~-10!"=="2024Volume" (call set _tmp=!_tmp:~0,-10!Retail) else (call set _tmp=!_tmp:~0,-6!Retail)
@@ -557,11 +544,10 @@ if defined _keys (set "_keys=!_keys!,!_pkey%%J!") else (set "_keys=!_pkey%%J!")
 )
 
 :MenuFinal
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -575,14 +561,14 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
 if %_silent% EQU 1 (
 set _disp=False
@@ -608,6 +594,7 @@ echo Updates : %_updt% / AcceptEULA : %_eula% / Display : %_disp%
 echo PinIcons: %_icon% / AppShutdown: %_shut% / Activate: %_actv%
 echo Disable Telemetry: %_tele%
 echo %line%
+echo.
 echo. 1. Install Now
 echo. 2. Exit
 echo.
@@ -618,11 +605,10 @@ if errorlevel 1 goto :MenuInstall
 goto :MenuFinal
 
 :MenuInstall
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -636,16 +622,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-cls
 echo %line%
 echo Preparing...
 echo %line%
@@ -657,12 +642,10 @@ if %_actv%==True (set "_autoact=autoactivate=1"&set "_activate=Activate=1") else
 set "_CTR=HKLM\SOFTWARE\Microsoft\Office\ClickToRun"
 set "_Config=%_CTR%\Configuration"
 set "_url=http://officecdn.microsoft.com/db"
-
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -676,20 +659,17 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 (
 echo @echo off
-chcp 65001 >nul
-CD /d "%~dp0"
 echo reg.exe query "HKU\S-1-5-19" 1^>nul 2^>nul ^|^| ^(echo Run the script as administrator^&pause^&exit^)
 echo reg.exe delete %_Config% /f /v UpdateUrl 1^>nul 2^>nul
 echo reg.exe delete %_Config% /f /v UpdateToVersion 1^>nul 2^>nul
@@ -716,11 +696,10 @@ echo reg.exe add %_Config% /f /v UpdateChannel /t REG_SZ /d "%_url%/%CTRffn%" 1^
 echo reg.exe add %_Config% /f /v UpdateChannelChanged /t REG_SZ /d True 1^>nul 2^>nul
 echo exit /b
 )>"!_temp!\C2R_Setup.bat"
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -734,16 +713,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 for /f "tokens=3 delims=." %%# in ('echo %CTRver%') do set verchk=%%#
 set "CTRexe=1"
 set "cfile=!_file:\=\\!"
@@ -760,11 +738,10 @@ mkdir "!_target!" 1>nul 2>nul
 expand -f:* "!CTRsource!\Office\Data\%CTRver%\%CTRicab%" "!_target!" 1>nul 2>nul
 expand -f:* "!CTRsource!\Office\Data\%CTRver%\%CTRicabr%" "!_target!" 1>nul 2>nul
 )
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -778,27 +755,24 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 del /f /q "%SystemRoot%\temp\*.log" 1>nul 2>nul
 del /f /q "!_temp!\*.log" 1>nul 2>nul
 !_ComSpec! /c ""!_temp!\C2R_Setup.bat" "
 del /f /q "!_temp!\C2R_Setup.bat" 1>nul 2>nul
 if not exist "!_Program!\Microsoft Office\root\Office16\*.dll" if not exist "%ProgramFiles(x86)%\Microsoft Office\root\Office16\*.dll" (
-echo.
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -812,25 +786,26 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
+echo %line%
+echo Installation failed.
+echo %line%
 if %_unattend%==True goto :eof
 goto :TheEnd
 )
 if defined _licenses (
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -844,27 +819,33 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
+echo %line%
+echo Installing uplevel Licenses...
+echo %line%
+echo.
 call :Licenses 1>nul 2>nul
 )
 if %_tele%==True (
 call :Telemetry 1>nul 2>nul
 )
 call :Cleanup 1>nul 2>nul
-mode con:cols=78 lines=26
+echo.
+echo %line%
+echo Done.
+echo %line%
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -878,16 +859,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 if %_unattend%==True goto :eof
 if %_silent% EQU 1 goto :eof
 echo Press 9 or X to exit.
@@ -896,11 +876,10 @@ if errorlevel 1 (exit /b) else (rem.)
 goto :eof
 
 :StopService
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -914,16 +893,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 sc query WSearch | find /i "STOPPED" || net stop WSearch /y
 sc query WSearch | find /i "STOPPED" || sc stop WSearch
 if not exist "!_file!" exit /b
@@ -934,11 +912,10 @@ taskkill /t /f /IM OfficeClickToRun.exe
 exit /b
 
 :Cleanup
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -952,29 +929,27 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 taskkill /t /f /IM OfficeC2RClient.exe
 reg delete HKCU\Software\Microsoft\Office\Common /f
 reg delete HKCU\Software\Microsoft\Office\16.0 /f
 reg add HKCU\Software\Policies\Microsoft\Office\16.0\Teams /f /v PreventFirstLaunchAfterInstall /t REG_DWORD /d 1
-start /min TSforge_Activation_Office.cmd
+start /min Ohook_Activation_Office.cmd
 exit /b
 
 :Licenses
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -988,16 +963,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 for /f "skip=2 tokens=2*" %%A in ('reg query %_CTR% /v InstallPath') do set "_Root=%%B\root"
 for /f "skip=2 tokens=2*" %%A in ('reg query %_CTR% /v PackageGUID') do set "_GUID=%%B"
 for %%J in (%_licenses%) do (
@@ -1012,11 +986,10 @@ reg add %_Config% /f /v %%J.OSPPReady /t REG_SZ /d 1
 exit /b
 
 :Telemetry
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -1030,16 +1003,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
 set "_inter=SOFTWARE"
 if "%xOS%"=="x64" if %wow64%==1 (set "_inter=SOFTWARE\Wow6432Node")
 set "_rkey=HKLM\%_inter%\Microsoft\Office\16.0\User Settings\MyCustomUserSettings"
@@ -1078,11 +1050,10 @@ set "_schedule=Microsoft\Office"
 %_schtasks% "%_schedule%\OfficeTelemetryAgentLogOn2016"
 %_schtasks% "ServiceWatcherSchedule"
 exit /b
-mode con:cols=78 lines=26
 cls
+mode con:cols=78 lines=24
 color 1F
-cls
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
 echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
@@ -1096,17 +1067,15 @@ echo ßß       ßßßßßß  ßßßßßßß  ßßßßßßß    ßß     ßß ß
 echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß ßß  ßß ßß       ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
-echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-echo              Installing Office 2024 LTSC Pro Plus_16.0.17932.20842...
-echo             **********************************************************
-echo                 This includes: Excel, Outlook, PowerPoint and Word.
-echo             But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
-echo            *************************************************************
-echo            To change what's installed, extract the files to a temp folder
-echo              and run 'Configurator.cmd' to configure a new install.
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo             Installing Office 2024 LTSC Pro Plus_16.0.17932.20884...
+echo          **********************************************************
+echo              This includes: Excel, Outlook, PowerPoint and Word.
+echo          But excludes: Access, Lync, OneNote, OneDrive ^&^ Publisher.
+echo         *************************************************************
+echo         To change what's installed, extract the files to a temp folder
+echo            and run 'Configurator.cmd' to configure a new install.
 echo.
-
-
 :E_FILE
 echo %_err%
 echo %ERRFILE% is missing in the specified source
@@ -1129,8 +1098,10 @@ goto :TheEnd
 
 :TheEnd
 cls
+mode con:cols=78 lines=24
 color 0E
-
+echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+echo.
 echo         ßßß    ßßß   ßßßßßß   ßßßßßß   ßßßßßß   ßß   ßß  ßßßßßßß
 echo         ßßßß  ßßßß  ßß    ßß  ßß   ßß  ßß   ßß  ßß   ßß  ßß     
 echo         ßß ßßßß ßß  ßß    ßß  ßßßßßß   ßßßßßß   ßßßßßßß  ßßßßßßß
@@ -1144,9 +1115,5 @@ echo ßß       ßß   ßß ßß       ßß   ßß    ßß     ßß ßß    ßß
 echo  ßßßßßß  ßß   ßß ßßßßßßß  ßß   ßß    ßß     ßß  ßßßßßß  ßß   ßßßß  ßßßßßßß
 echo.
 echo ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
-
-del /q /f "%USERPROFILE%\AppData\Local\Temp\Office2024""
-RMDIR /S /Q "%USERPROFILE%\AppData\Local\Temp\Office2024"
-call Morphs_Win-Office_Activation.cmd
 if %_silent% EQU 1 goto :eof
 exit

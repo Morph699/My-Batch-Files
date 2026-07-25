@@ -1,12 +1,12 @@
-@echo off
-chcp 65001 >nul
-CD /d "%~dp0"
+@echo off 
+cd /d "%%~dp0"
+cd /d "%%~dp0"
 Title Reg Converter v1.2 & Color 1A
 cd %systemroot%\system32
 call :IsAdmin
 
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOwner" /t REG_SZ /d "TeamOS" /f
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOrganization" /t REG_SZ /d "Company Morphs Creations" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOrganization" /t REG_SZ /d "Morphs Creations" /f
 Exit
 
 :IsAdmin

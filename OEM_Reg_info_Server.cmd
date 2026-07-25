@@ -5,7 +5,7 @@ Title Reg Converter v1.2 & Color 1A
 cd %systemroot%\system32
 call :IsAdmin
 
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOwner" /t REG_SZ /d "TeamOS" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOwner" /t REG_SZ /d "Server-Edition" /f
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOrganization" /t REG_SZ /d "Company Morphs Creations" /f
 Exit
 
