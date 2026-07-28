@@ -1,1 +1,0 @@
-@for %%i in ("Dropbox*.exe") do @start "" "%%i" /NOLAUNCH
